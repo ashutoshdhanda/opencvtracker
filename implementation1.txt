@@ -1,0 +1,30 @@
+						IMPLIMENTATION 1
+
+	(en resumen, esa implementacion funciona as . Coorer frame, dar coordinadas de objetos, desde pickle al tracker y luego ver que tal anda el tracker con esos cordinadas)
+
+Declare dictionary of tracker objects that are predefined in OpenCV, so that we can chose one and use it, to implement tracking
+
+Create/Initialize tracker
+
+Create reference from video source (file/webcam)
+
+Read Video stream and loop over the frames from it:
+
+e		make frame variable and handle if we are using VideoCapture(webcam) or VideoStream(video)
+
+		resize frame by applying imutils/OpenCv function on it 
+
+# still inside frame loop
+
+	update the tracker and get BB (if any)
+	success, box = tracker.update(image)
+	draw trackerBBox
+
+	# if the tracker did not have detections, get detections from pickle
+
+	pop out the first detection from detections (poping is permanently reducing detections list size by 1)
+
+	if poped detection contains data:
+		draw neurona Bounding Box, then initialize tracker for it
+
+	show the final frame (that has one color of bounding box only)
